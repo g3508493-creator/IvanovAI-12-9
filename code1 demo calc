@@ -26,12 +26,14 @@ if operation == "**":
     result = a ** b
     print(result)
 if operation == "1":
-    price = int(input("стоимость товара"))
-    kol = int(input("количество товара"))
-    discount = int(input("скидка в процентах"))
+    price = int(input("стоимость товара: "))
+    kol = int(input("количество товара: "))
+    discount = int(input("скидка в процентах: "))
     final = price * kol * (100 - discount) / 100
-    print("к оплате",final)
-    if final > 5000:
+    print("к оплате: ",final)
+    if final > 100000:
+        print("ОГРОМНАЯ И ОЧЕНЬ ДОРОГАЯ ПОКУПКА")
+    elif final > 5000:
         print("крупная покупка")
 if operation != "1" and operation != "+" and operation != "-" and operation != "*" and operation != "/" and operation != "//" and operation != "%" and operation != "**":
     print("no")
