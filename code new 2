@@ -1,0 +1,47 @@
+print("------------------------------------------------------")
+print(" Добро пожаловать в кастомный калькулятор от savage6")
+print("------------------------------------------------------")
+while True:
+    result = 0
+    a = int(input("введите первое число: "))
+    if a == 0:
+        print("выход из калькулятора")
+        break
+    b = int(input("введите второе число: "))
+    operation = input("операция(+ - * / // % ** 1): ")
+    if (operation == "/" or operation == "//" or operation == "%") and b == 0:
+        print("деление на 0 невозможно")
+        continue  
+    if operation == "+":
+        result = a + b
+        print(result)
+    elif operation == "-":
+        result = a - b
+        print(result)
+    elif operation == "*":
+        result = a * b
+        print(result)
+    elif operation == "/":
+        result = a / b
+        print(result)
+    elif operation == "//":
+        result = a // b
+        print(result)
+    elif operation == "%":
+        result = a % b
+        print(result)
+    elif operation == "**":
+        result = a ** b
+        print(result)
+    elif operation == "1":
+        price = int(input("стоимость товара: "))
+        kol = int(input("количество товара: "))
+        discount = int(input("скидка в процентах: "))
+        final = price * kol * (100 - discount) / 100
+        print("к оплате: ", final)
+        if final > 100000:
+            print("ОГРОМНАЯ И ОЧЕНЬ ДОРОГАЯ ПОКУПКА")
+        elif final > 5000:
+            print("крупная покупка")
+    else:
+        print("no")
