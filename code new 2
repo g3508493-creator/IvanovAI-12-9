@@ -1,47 +1,108 @@
-print("------------------------------------------------------")
+print("\n------------------------------------------------------")
 print(" Добро пожаловать в кастомный калькулятор от savage6")
 print("------------------------------------------------------")
+
 while True:
-    result = 0
-    a = int(input("введите первое число: "))
-    if a == 0:
-        print("выход из калькулятора")
-        break
-    b = int(input("введите второе число: "))
-    operation = input("операция(+ - * / // % ** 1): ")
-    if (operation == "/" or operation == "//" or operation == "%") and b == 0:
-        print("деление на 0 невозможно")
-        continue  
-    if operation == "+":
-        result = a + b
-        print(result)
-    elif operation == "-":
-        result = a - b
-        print(result)
-    elif operation == "*":
-        result = a * b
-        print(result)
-    elif operation == "/":
-        result = a / b
-        print(result)
-    elif operation == "//":
-        result = a // b
-        print(result)
-    elif operation == "%":
-        result = a % b
-        print(result)
-    elif operation == "**":
-        result = a ** b
-        print(result)
-    elif operation == "1":
-        price = int(input("стоимость товара: "))
-        kol = int(input("количество товара: "))
-        discount = int(input("скидка в процентах: "))
-        final = price * kol * (100 - discount) / 100
-        print("к оплате: ", final)
-        if final > 100000:
-            print("ОГРОМНАЯ И ОЧЕНЬ ДОРОГАЯ ПОКУПКА")
-        elif final > 5000:
-            print("крупная покупка")
-    else:
-        print("no")
+
+    print("1 - числовой калькулятор")
+    print(" ")
+    print("2 - финансовый калькулятор")
+    print(" ")
+    print("0 -  выход")
+    print(" ")
+
+    calc = (input("выберите режим калькулятора: "))
+
+    if calc == "1":
+        result = 0
+        a = int(input("\nвведите первое число: "))
+        b = int(input("\nвведите второе число: "))
+        operation = input("\nоперация(+ - * / // % ** ): ")
+        if (operation == "/" or operation == "//" or operation == "%") and b == 0:
+            print(" ")
+            print("деление на 0 невозможно")
+            continue  
+        if operation == "+":
+            result = a + b
+            print(" ")
+            print(f"Ответ: {result}")
+        elif operation == "-":
+            result = a - b
+            print(" ")
+            print(f"Ответ: {result}")
+        elif operation == "*":
+            result = a * b
+            print(" ")
+            print(f"Ответ: {result}")
+        elif operation == "/":
+            result = a / b
+            print(" ")
+            print(f"Ответ: {result}")
+        elif operation == "//":
+            result = a // b
+            print(" ")
+            print(f"Ответ: {result}")
+        elif operation == "%":
+            result = a % b
+            print(" ")
+            print(f"Ответ: {result}")
+        elif operation == "**":
+            result = a ** b
+            print(" ")
+            print(f"Ответ: {result}")
+            
+            # обычный калькулятор
+
+    elif calc == "2":
+        print("финансовые операции")
+        print(" ")
+        print("1 - покупка в магазине ")
+        print(" ")
+        print("2 - доход от битов ")
+        print(" ")
+        operation1 = input("выберите операцию: ")
+        if operation1 == "1":
+
+            price = int(input("\nстоимость товара: "))
+            kol = int(input("\nколичество товара: "))
+            discount = int(input("\nскидка в процентах: "))
+
+            final = price * kol * (100 - discount) / 100
+            print("\nк оплате: ", final)
+
+            if final > 100000:
+                print("\nОГРОМНАЯ И ОЧЕНЬ ДОРОГАЯ ПОКУПКА")
+            elif final > 5000:
+                print("\nкрупная покупка")
+
+        if operation1 == "2":
+
+            print("\n1 - wav (899 руб.)")
+            print("\n2 - lease_wav (499 руб.)")
+            print("\n3 - exclusive (3199 руб.)")
+            price_wav = 899
+            price_lease_wav = 499
+            price_exclusive = 3199
+
+            license = int(input("\nВыберите лицензию (1/2/3): "))
+            kol1 = int(input("\nКоличество битов: "))
+
+            if license == 1:
+                cost = price_wav
+            elif license == 2:
+                cost = price_lease_wav
+            elif license == 3:
+                cost = price_exclusive
+
+            summa = cost * kol1
+            
+        print(" ")
+        print(f"Итоговая сумма: {summa}")
+
+            # финансовый калькулятор
+
+    elif calc == "0":
+        print("До свидания!")
+        exit()
+
+            # выход калькулятор   
