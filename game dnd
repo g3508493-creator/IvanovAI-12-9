@@ -1,4 +1,6 @@
 import random
+import sys
+
 while True:
     print(" ")
     print("Дракон на вас напал, победи его бросая игральные кубики!!!")
@@ -15,7 +17,7 @@ while True:
 
     total = dice1 + dice2
     print(" ")
-    print("Сумма костей = ",total)
+    print("Сумма костей = ", total)
     print(" ")
 
     if dice1 == 20 and dice2 == 20 and total == 40:
@@ -38,28 +40,25 @@ while True:
         print(" ")
         ydar = input("хотите сделать еще один удар: ")
 
-        if ydar == "нет" :
+        if ydar == "нет":
             variant = ["Вам повезло, у вас получилось сбежать", "Дракон вас сьел", "Вы погибли от пламени дракона"]
             print(random.choice(variant))
 
-        elif dragon_hp < 98 and ydar == "да" :
+        elif dragon_hp < 98 and ydar == "да":
             dice3 = random.randint(1, 20)
             dice4 = random.randint(1, 20)
             total1 = dice3 + dice4
             dragon_hp2 = dragon_hp - total1
             print(" ")
-            print(dragon_hp2,"хп осталось у дракона")
+            print(dragon_hp2, "хп осталось у дракона")
             print(" ")
             ydar1 = input("хотите сделать еще один удар: ")
-        else:
-            print("вы допустили ошибку, попробуйте еще раз")
-            
 
             if dragon_hp2 <= 0:
                 print(" ")
                 print("Дракон повержен!!!!!")
 
-            if ydar1 == "нет" :
+            if ydar1 == "нет":
                 variant1 = ["Вам повезло, у вас получилось сбежать", "Дракон вас сьел", "Вы погибли от пламени дракона"]
                 print(random.choice(variant1))
 
@@ -69,7 +68,7 @@ while True:
                 total2 = dice5 + dice6
                 dragon_hp3 = dragon_hp2 - total2
                 print(" ")
-                print(dragon_hp3,"хп осталось у дракона")
+                print(dragon_hp3, "хп осталось у дракона")
 
                 if dragon_hp3 <= 0:
                     print(" ")
@@ -88,7 +87,8 @@ while True:
                         print("у вас так и так закончилась мана, вы проиграли")
                     else:
                         print("вы допустили ошибку, попробуйте еще раз")
-
+        else:
+            print("вы допустили ошибку, попробуйте еще раз")
 
     print(" ")
     what = input("Хотите продолжить: ")
@@ -100,10 +100,8 @@ while True:
     elif what == "нет":
         print(" ")
         print("Выход из игры.......")
-        exit()
+        sys.exit()
         print(" ")
 
     else:
         print("Ошибка ввода, попробуйте еще раз")
-        
-        
