@@ -1,0 +1,15 @@
+import random
+
+number = random.randint(10, 99)
+attempts = 0
+print("компютер загадал число попробуйте его угадать")
+while True:
+    attempt = int(input("Введите число: "))
+    attempts += 1
+    if attempt < number:
+        print("ТЕПЛЕЕ")
+    elif attempt > number:
+        print("ХОЛОДНЕЕ")
+    else:
+        print("Число отгадано! Количество попыток:", attempts)
+        break
