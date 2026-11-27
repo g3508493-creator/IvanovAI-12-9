@@ -1,0 +1,109 @@
+import random
+while True:
+    print(" ")
+    print("Дракон на вас напал, победи его бросая игральные кубики!!!")
+
+    dragonhp = 100
+
+    dice1 = random.randint(1, 20)
+    print(" ")
+    print("Выпало: ", dice1)
+
+    dice2 = random.randint(1, 20)
+    print(" ")
+    print("Выпало: ", dice2)
+
+    total = dice1 + dice2
+    print(" ")
+    print("Сумма костей = ",total)
+    print(" ")
+
+    if dice1 == 20 and dice2 == 20 and total == 40:
+        print(" ")
+        print("Критический успех! Дракон повержен!")
+
+    elif dice1 == 1 and dice2 == 1 and total == 2:
+        print(" ")
+        print("Критический провал! Вы падаете в ловушку!")
+
+    elif total == 40 or total == 3:
+        print(" ")
+        print("Легендарный бросок!!!, дракон убит")
+
+    else:
+        print(f"Обычный ход: выпало {dice1} и {dice2}, сумма {total}, урон(сумма * 2) = {total * 2}")
+        dragon_hp = 100 - (total * 2)
+        print(" ")
+        print("У дракона осталось", dragon_hp, "хп")
+        print(" ")
+        ydar = input("хотите сделать еще один удар: ")
+
+        if ydar == "нет" :
+            variant = ["Вам повезло, у вас получилось сбежать", "Дракон вас сьел", "Вы погибли от пламени дракона"]
+            print(random.choice(variant))
+
+        elif dragon_hp < 98 and ydar == "да" :
+            dice3 = random.randint(1, 20)
+            dice4 = random.randint(1, 20)
+            total1 = dice3 + dice4
+            dragon_hp2 = dragon_hp - total1
+            print(" ")
+            print(dragon_hp2,"хп осталось у дракона")
+            print(" ")
+            ydar1 = input("хотите сделать еще один удар: ")
+        else:
+            print("вы допустили ошибку, попробуйте еще раз")
+            
+
+            if dragon_hp2 <= 0:
+                print(" ")
+                print("Дракон повержен!!!!!")
+
+            if ydar1 == "нет" :
+                variant1 = ["Вам повезло, у вас получилось сбежать", "Дракон вас сьел", "Вы погибли от пламени дракона"]
+                print(random.choice(variant1))
+
+            if ydar1 == "да" and dragon_hp2 > 0:
+                dice5 = random.randint(1, 20)
+                dice6 = random.randint(1, 20)
+                total2 = dice5 + dice6
+                dragon_hp3 = dragon_hp2 - total2
+                print(" ")
+                print(dragon_hp3,"хп осталось у дракона")
+
+                if dragon_hp3 <= 0:
+                    print(" ")
+                    print("Дракон повержен!!!!!")
+
+                elif dragon_hp3 > 0:
+                    print(" ")
+                    ydar2 = input("хотите сделать еще один удар: ")
+
+                    if ydar2 == "да":
+                        print(" ")
+                        print("у вас закончилась мана, вы проиграли")
+
+                    elif ydar2 == "нет":
+                        print(" ")
+                        print("у вас так и так закончилась мана, вы проиграли")
+                    else:
+                        print("вы допустили ошибку, попробуйте еще раз")
+
+
+    print(" ")
+    what = input("Хотите продолжить: ")
+    if what == "да":
+        print(" ")
+        print("Хорошо повторим попытку")
+        continue
+
+    elif what == "нет":
+        print(" ")
+        print("Выход из игры.......")
+        exit()
+        print(" ")
+
+    else:
+        print("Ошибка ввода, попробуйте еще раз")
+        
+        
